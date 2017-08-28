@@ -4,9 +4,13 @@ MessageApp.controller('MessageController', ['MessageService', function(MessageSe
 
     self.newMessage = {};
 
+    MessageService.getMessages();
+    self.messages = MessageService.gotMessages;
+
     self.sendMessage = function () {
         console.log('Message Sent!', self.newMessage);
         MessageService.sendMessage(self.newMessage);
+        MessageService.getMessages();
     };
 
 }]);

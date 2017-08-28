@@ -11,7 +11,7 @@
 </head>
 
 <body ng-app='MessageApp'>
-    <h1>Index loaded</h1>
+    <h1>NG/MNGO Message App</h1>
     <div ng-controller="MessageController as vm">
         <form>
             <label for="newMessageName">Name:</label>
@@ -22,6 +22,11 @@
 
             <button ng-click="vm.sendMessage()">Send!</button>
         </form>
+        
+        <h3>Messages:</h3>
+        <div ng-repeat='message in vm.messages.list | orderBy: "-"'>
+            <p>{{message.name}} : {{message.message}}</p>
+        </div>
     </div>
 </body>
 
