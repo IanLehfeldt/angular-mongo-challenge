@@ -8,25 +8,34 @@
     <script src='/controllers/message.controller.js'></script>
     <script src='/services/message.service.js'></script>
 
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+
 </head>
 
 <body ng-app='MessageApp'>
-    <h1>NG/MNGO Message App</h1>
+    <h1 class=''>NG/MNGO Message App</h1>
     <div ng-controller="MessageController as vm">
-        <form>
-            <label for="newMessageName">Name:</label>
-            <input type="text" placeholder='Name' ng-model="vm.newMessage.name" name='newMessageName'>
+        <div class='form-control'>
+            <form>
+                <label for="newMessageName">Name:</label>
+                <input type="text" placeholder='Name' ng-model="vm.newMessage.name" name='newMessageName'>
 
-            <label for="newMessageMessage">New Message:</label>
-            <input type="text" placeholder='Message' ng-model="vm.newMessage.message" name='newMessageMessage'>
+                <label for="newMessageMessage">New Message:</label>
+                <input type="text" placeholder='Message' ng-model="vm.newMessage.message" name='newMessageMessage'>
 
-            <button ng-click="vm.sendMessage()">Send!</button>
-        </form>
-        
-        <h3>Messages:</h3>
-        <div ng-repeat='message in vm.messages.list | orderBy: "-"'>
+                <button ng-click="vm.sendMessage()" class='btn-primary'>Send!</button>
+            </form>
+        </div>
+
+        <div class='container-fluid'>
+            <h3>Messages</h3>
+            <h4>Displayed from newest to oldest:</h4>
+        </div>
+
+        <div ng-repeat='message in vm.messages.list | orderBy: "-"' class='container'>
             <p>{{message.name}} : {{message.message}}</p>
         </div>
+        
     </div>
 </body>
 
