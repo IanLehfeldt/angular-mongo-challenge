@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
 
-    </body>
+<head>
+    <title>Angular Mongo Mon Challenge</title>
+    <script src='/vendors/angular.min.js'></script>
+    <script src='/client/client.js'></script>
+    <script src='/controllers/message.controller.js'></script>
+    <script src='/services/message.service.js'></script>
+
+</head>
+
+<body ng-app='MessageApp'>
+    <h1>Index loaded</h1>
+    <div ng-controller="MessageController as vm">
+        <form>
+            <label for="newMessageName">Name:</label>
+            <input type="text" placeholder='Name' ng-model="vm.newMessage.name" name='newMessageName'>
+
+            <label for="newMessageMessage">New Message:</label>
+            <input type="text" placeholder='Message' ng-model="vm.newMessage.message" name='newMessageMessage'>
+
+            <button ng-click="vm.sendMessage()">Send!</button>
+        </form>
+    </div>
+</body>
+
 </html>
